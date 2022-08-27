@@ -12,18 +12,21 @@ a.next = b
 b.next = c
 c.next = d
 
-def LLTraversal(head):
+
+def ReverseLL(head):
+  prev = None
   current = head
-  while current != None:
-    print(current.data)
-    current = current.next
+  while current is not None:
+    next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  head = prev
 
-def LLRecursiveTraversal(head):
-  if head == None:
-    return
-  print(head.data)
-  LLRecursiveTraversal(head.next)
+ReverseLL(a)
 
-LLTraversal(a)
-print('')
-LLRecursiveTraversal(a)
+def printLL(head):
+  while head != None:
+    print(head.data)
+    head = head.next
+printLL(d)
